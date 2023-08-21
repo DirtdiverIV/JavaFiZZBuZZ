@@ -2,26 +2,21 @@ package com.fizzbuzz;
 
 public class FizzBuzz {
 
-    public static void main (String args[]) {
-        for (int i = 1; i <= 100; i++) {
-            if ((i % 3 == 0) && (i % 5 == 0)){
-                System.out.println("FiZZBuZZ");
-            } else if (i % 3 == 0){
-                System.out.println("FiZZ");
-            } else if (i % 5 == 0){
-                System.out.println("Buzz");
-
-            } else if (String.valueOf(i).contains("3")) {
-                System.out.println("FiZZ");
-
-            } else if (String.valueOf(i).contains("5")) {
-                System.out.println("BuzZZ");
-
-            }else {
-                System.out.println(i);
-            }
-
+    public static String getFizzBuzzValue(int number) {
+        if ((number % 3 == 0) && (number % 5 == 0)) {
+            return "FiZZBuZZ";
+        } else if (number % 3 == 0 || String.valueOf(number).contains("3")) {
+            return "FiZZ";
+        } else if (number % 5 == 0 || String.valueOf(number).contains("5")) {
+            return "BuZZ";
+        } else {
+            return String.valueOf(number);
         }
     }
-    
+
+    public static void main(String args[]) {
+        for (int i = 1; i <= 100; i++) {
+            System.out.println(getFizzBuzzValue(i));
+        }
+    }
 }
